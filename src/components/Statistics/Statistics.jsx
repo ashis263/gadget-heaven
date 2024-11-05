@@ -1,13 +1,15 @@
 // import PropTypes from 'prop-types';
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Statistics = () => {
     return (
         <div>
-            <Helmet>
-                <title>Gradget Heaven | Statistics</title>
-            </Helmet>
-            <p>stat</p>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Gradget Heaven | Statistics</title>
+                </Helmet>
+                <p>stat</p>
+            </HelmetProvider>
         </div>
     );
 };

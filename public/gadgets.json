@@ -1,0 +1,242 @@
+[
+    {
+        "product_id": "1",
+        "product_title": "Sony Xperia 5 V",
+        "product_image": "https://skyphonez.com.au/wp-content/uploads/2023/11/Sony-Xperia-5V-Black.webp",
+        "category": "Smartphones",
+        "price": 900,
+        "description": "Sony's compact smartphone with pro-level camera features.",
+        "Specification": [
+            "6.1-inch OLED display",
+            "256GB storage",
+            "Triple-camera system"
+        ],
+        "availability": true,
+        "rating": 4.7,
+        "brand": "Sony"
+    },
+    {
+        "product_id": "2",
+        "product_title": "Apple Watch Series 9",
+        "product_image": "https://assets.gadgetandgear.com/upload/product/20231012_1697109875_886371.jpeg",
+        "category": "Wearables",
+        "price": 399,
+        "description": "Advanced health monitoring and fitness tracking in a stylish watch.",
+        "Specification": [
+            "Always-On Retina display",
+            "Heart rate monitor",
+            "GPS tracking"
+        ],
+        "availability": true,
+        "rating": 4.6,
+        "brand": "Apple"
+    },
+    {
+        "product_id": "3",
+        "product_title": "Dell XPS 13",
+        "product_image": "http://www.21technology.com.bd/public/uploads/all/YIHaArqqp5NdnQDP4wmTKSGAptgvGYqYPVXwEiJu.jpg",
+        "category": "Laptops",
+        "price": 1000,
+        "description": "A powerful and compact laptop with an edge-to-edge display.",
+        "Specification": [
+            "13.4-inch FHD+ display",
+            "Intel Core i7 processor",
+            "512GB SSD"
+        ],
+        "availability": true,
+        "rating": 4.8,
+        "brand": "Dell"
+    },
+    {
+        "product_id": "4",
+        "product_title": "Google Pixel 7",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/Pixel-7-Obsidian-1130.jpg",
+        "category": "Smartphones",
+        "price": 600,
+        "description": "Google's flagship smartphone with impressive AI capabilities.",
+        "Specification": [
+            "6.3-inch OLED display",
+            "128GB storage",
+            "Dual-camera system"
+        ],
+        "availability": true,
+        "rating": 4.7,
+        "brand": "Google"
+    },
+    {
+        "product_id": "5",
+        "product_title": "Samsung Galaxy S23",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/Galaxy-S23-Green-1123.jpg",
+        "category": "Smartphones",
+        "price": 800,
+        "description": "A premium smartphone with advanced camera features and sleek design.",
+        "Specification": [
+            "6.1-inch FHD+ display",
+            "256GB storage",
+            "Triple-camera system"
+        ],
+        "availability": true,
+        "rating": 4.8,
+        "brand": "Samsung"
+    },
+    {
+        "product_id": "6",
+        "product_title": "Fitbit Charge 5",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/Fitbit-Charge-5-Black-3688.jpg",
+        "category": "Wearables",
+        "price": 180,
+        "description": "Advanced health and fitness tracker with built-in GPS.",
+        "Specification": [
+            "Heart rate monitoring",
+            "Stress management tools",
+            "Daily readiness score"
+        ],
+        "availability": true,
+        "rating": 4.5,
+        "brand": "Fitbit"
+    },
+    {
+        "product_id": "7",
+        "product_title": "Apple iPhone 15",
+        "product_image": "https://www.phonemart.ng/wp-content/uploads/2024/06/15-promax6.jpeg",
+        "category": "Smartphones",
+        "price": 999,
+        "description": "The latest iPhone with a powerful A16 Bionic chip and stunning display.",
+        "Specification": [
+            "6.1-inch Super Retina XDR display",
+            "128GB storage",
+            "Dual-camera system"
+        ],
+        "availability": true,
+        "rating": 4.9,
+        "brand": "Apple"
+    },
+    {
+        "product_id": "8",
+        "product_title": "Apple MacBook Air M2",
+        "product_image": "https://mdriveasia.com/cdn/shop/products/MacBook_Air_M2_Space_Gray_PDP_Image_Position-3__ROSA_1024x1024.jpg?v=1662720350",
+        "category": "Laptops",
+        "price": 1200,
+        "description": "Apple's lightweight and efficient laptop with the M2 chip.",
+        "Specification": [
+            "13.6-inch Liquid Retina display",
+            "Apple M2 chip",
+            "256GB SSD"
+        ],
+        "availability": true,
+        "rating": 4.9,
+        "brand": "Apple"
+    },
+    {
+        "product_id": "9",
+        "product_title": "JBL Charge 5",
+        "product_image": "https://adminapi.applegadgetsbd.com/storage/media/large/2504-15466.jpg",
+        "category": "Audio",
+        "price": 190,
+        "description": "Portable Bluetooth speaker with powerful sound and long battery life.",
+        "Specification": [
+            "20 hours battery life",
+            "IP67 waterproof",
+            "Built-in power bank"
+        ],
+        "availability": true,
+        "rating": 4.8,
+        "brand": "JBL"
+    },
+    {
+        "product_id": "10",
+        "product_title": "Microsoft Surface Laptop 5",
+        "product_image": "https://ryans.com/storage/products/main/microsoft-surface-laptop-5-intel-core-i7-1265u-11697279015.webp",
+        "category": "Laptops",
+        "price": 1100,
+        "description": "Versatile laptop with touchscreen and excellent performance.",
+        "Specification": [
+            "13.5-inch PixelSense display",
+            "Intel Core i7",
+            "512GB SSD"
+        ],
+        "availability": true,
+        "rating": 4.7,
+        "brand": "Microsoft"
+    },
+    {
+        "product_id": "11",
+        "product_title": "Bose QuietComfort 45",
+        "product_image": "https://executiveample.com/wp-content/uploads/2023/01/Bose-QuietComfort-45-Wireless-Noise-Cancelling-Headphones-Limited-Edition-768x768.jpg",
+        "category": "Audio",
+        "price": 329,
+        "description": "Premium noise-canceling headphones with superior sound quality.",
+        "Specification": [
+            "30-hour battery life",
+            "Bluetooth connectivity",
+            "Touch controls"
+        ],
+        "availability": true,
+        "rating": 4.9,
+        "brand": "Bose"
+    },
+    {
+        "product_id": "12",
+        "product_title": "Oculus Quest 2",
+        "product_image": "https://m.media-amazon.com/images/I/51yEisLcPxL._SX522_.jpg",
+        "category": "Gaming",
+        "price": 299,
+        "description": "All-in-one VR headset with immersive gameplay.",
+        "Specification": [
+            "64GB storage",
+            "Dual 1832 x 1920 resolution",
+            "Oculus Touch controllers"
+        ],
+        "availability": true,
+        "rating": 4.6,
+        "brand": "Meta"
+    },
+    {
+        "product_id": "13",
+        "product_title": "Xiaomi Mi 13",
+        "product_image": "https://mobilebuzzbd.com/wp-content/uploads/2023/07/Mi-13-768x768.jpg",
+        "category": "Smartphones",
+        "price": 500,
+        "description": "Affordable smartphone with great camera and battery life.",
+        "Specification": [
+            "6.5-inch FHD+ display",
+            "128GB storage",
+            "Quad-camera system"
+        ],
+        "availability": true,
+        "rating": 4.5,
+        "brand": "Xiaomi"
+    },
+    {
+        "product_id": "14",
+        "product_title": "OnePlus 11",
+        "product_image": "https://i0.wp.com/kryinternational.com/wp-content/uploads/2024/03/OnePlus-11.jpg?fit=800%2C800&ssl=1",
+        "category": "Smartphones",
+        "price": 700,
+        "description": "High-performance smartphone with fast charging and sleek design.",
+        "Specification": [
+            "6.7-inch AMOLED display",
+            "256GB storage",
+            "Triple-camera system"
+        ],
+        "availability": true,
+        "rating": 4.6,
+        "brand": "OnePlus"
+    },
+    {
+        "product_id": "15",
+        "product_title": "PlayStation 5 DualSense Controller",
+        "product_image": "https://www.jbhifi.com.au/cdn/shop/files/746047-Product-0-I-638490960610154273.jpg?v=1713503112",
+        "category": "Gaming",
+        "price": 69,
+        "description": "Next-generation controller with adaptive triggers and haptic feedback.",
+        "Specification": [
+            "Adaptive triggers",
+            "Haptic feedback",
+            "Built-in microphone"
+        ],
+        "availability": true,
+        "rating": 4.8,
+        "brand": "Sony"
+    }
+]    

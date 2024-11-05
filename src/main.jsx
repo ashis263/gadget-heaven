@@ -6,12 +6,17 @@ import Root from './components/Root/Root'
 import Dashboard from './components/Dashboard/Dashboard'
 import Statistics from './components/Statistics/Statistics'
 import Brands from './components/Brands/Brands'
+import Gadgets from './components/Gadgets/Gadgets'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root></Root>,
     children: [
+      {
+        path: '/',
+        element: <Gadgets></Gadgets>,
+      },
       {
         path: '/dashboard',
         element: <Dashboard></Dashboard>
