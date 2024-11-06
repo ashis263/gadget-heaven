@@ -8,6 +8,7 @@ import Statistics from './components/Statistics/Statistics'
 import Brands from './components/Brands/Brands'
 import Gadgets from './components/Gadgets/Gadgets'
 import ProductDetails from './components/ProductDetails/ProductDetails'
+import Cart from './components/Cart/Cart'
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,17 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <Dashboard></Dashboard>,
+        children: [
+          {
+            path: '/dashboard',
+            element: <Cart></Cart>
+          },
+          {
+            path: '/dashboard/cart',
+            element: <Cart></Cart>
+          }
+        ]
       },
       {
         path: '/statistics',

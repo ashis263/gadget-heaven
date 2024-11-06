@@ -11,7 +11,6 @@ const ProductDetails = () => {
     const { id } = useParams();
     const {cart, setCart} = useContext(CartContext);
     const {wishlist, setWishlist} = useContext(WishContext);
-    console.log(wishlist);
     const products = useLoaderData();
     const product = products.find(item => item.product_id === id);
     const [isAdded, setIsAdded] = useState(cart.includes(product.product_id));
@@ -50,6 +49,9 @@ const ProductDetails = () => {
                     <div className="space-y-1 sm:w-1/2">
                         <h3 className="text-lg sm:text-2xl font-bold">{product.product_title}</h3>
                         <p className="text-lg font-semibold">Price: {product.price}$</p>
+                        <div className={product.availability ? 'bg-green-205 border border-green-300 w-32 rounded-full' : 'bg-red-50 border border-red-300 w-32 rounded-full'}>
+                            <p className={product.availability ? 'text-green-500 font-semibold text-center' : 'text-red-500 font-semibold text-center'}>{product.availability ? 'In Stock' : 'Stocked Out'}</p>
+                        </div>
                         <p className="text-xs">{product.description}</p>
                         <p className="font-semibold">{product.brand} {product.category}</p>
                         <p className="font-semibold text-lg">Specifications: </p>
@@ -63,7 +65,7 @@ const ProductDetails = () => {
                             <ReactStars {...rating} />
                         </div>
                         <div className="flex gap-2 items-center justify-center sm:justify-normal">
-                            <button onClick={handleCart} className={`bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 ${isAdded ? 'text-black' : 'text-white'}`} disabled={isAdded}>Add to cart <IoCartOutline className={isAdded ? '' : 'text-white'} /></button>
+                            <button onClick={handleCart} className={`bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 ${(isAdded || !product.availability) ? 'text-black' : 'text-white'}`} disabled={isAdded || !product.availability}>Add to cart <IoCartOutline className={isAdded || !product.availability ? '' : 'text-white'} /></button>
                             <button onClick={handleHeart} className={`m-2 bg-white p-[6px] rounded-full border ${isWished ? "text-gray-300" : "text-black"}`} disabled={isWished}>
                                 <IoMdHeartEmpty />
                             </button>
