@@ -1,15 +1,18 @@
 import PropTypes from 'prop-types';
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import CartContext from "../../contexts/CartContext";
 import WishContext from '../../contexts/WishContext';
 import { useLocation } from 'react-router-dom';
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const AddedGadget = ({ gadget }) => {
     const location = useLocation().pathname;
     const { cart, setCart } = useContext(CartContext);
     const { wishlist, setWishlist } = useContext(WishContext);
+    const [isAdded, setIsAdded] = useState(cart.includes(gadget.product_id));
     const handleRemoveCart = () => {
         const gadgetIndex = cart.indexOf(gadget.product_id);
         cart.splice(gadgetIndex, 1);
@@ -24,8 +27,19 @@ const AddedGadget = ({ gadget }) => {
     const handleAddToCart = () => {
         if (!cart.includes(gadget.product_id)) {
             setCart([...cart, gadget.product_id]);
-            // setIsAdded(true);
         }
+        setIsAdded(true);
+        toast.success(`"${gadget.product_title}" is added to cart`, {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Flip,
+            });
     }
     return (
         <div className='py-3 sm:py-5'>
@@ -42,13 +56,15 @@ const AddedGadget = ({ gadget }) => {
                             }
                         </div>
                         {
-                            <button onClick={handleAddToCart} className="text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36">Add to cart</button>
+                            (location === '/dashboard/cart' || location === '/dashboard') ? '' :
+                            <button disabled={isAdded} onClick={handleAddToCart}  className="text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36">Add to cart</button>
                         }
                     </div>
                 </div>
                 <button onClick={(location === '/dashboard/cart' || location === '/dashboard') ? (handleRemoveCart) : (handleRemoveWishlist)} className='w-24 sm:w-auto btn btn-sm rounded-2xl sm:border-none border-2 sm:bg-white border-red-200 bg-red-50  text-red-400 text-2xl'><AiOutlineCloseCircle />
                 </button>
             </div>
+            <ToastContainer/>
         </div>
     );
 };

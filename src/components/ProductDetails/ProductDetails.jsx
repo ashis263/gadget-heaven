@@ -5,12 +5,14 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { useContext, useState } from "react";
 import CartContext from "../../contexts/CartContext";
 import WishContext from "../../contexts/WishContext";
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ProductDetails = () => {
     const { id } = useParams();
-    const {cart, setCart} = useContext(CartContext);
-    const {wishlist, setWishlist} = useContext(WishContext);
+    const { cart, setCart } = useContext(CartContext);
+    const { wishlist, setWishlist } = useContext(WishContext);
     const products = useLoaderData();
     const product = products.find(item => item.product_id === id);
     const [isAdded, setIsAdded] = useState(cart.includes(product.product_id));
@@ -22,17 +24,40 @@ const ProductDetails = () => {
         isHalf: true,
     };
     const handleCart = () => {
-        if(!cart.includes(product.product_id)){
+        if (!cart.includes(product.product_id)) {
             setCart([...cart, product.product_id]);
             setIsAdded(true);
         }
+        
+    toast.success(`"${product.product_title}" is added to cart`, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Flip,
+        });
     };
     const handleHeart = () => {
-        if(!wishlist.includes(product.product_id)){
+        if (!wishlist.includes(product.product_id)) {
             setWishlist([...wishlist, product.product_id]);
             setIsWished(true);
         }
-    }
+        toast.success(`"${product.product_title}" is added to wishlist`, {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Flip,
+            });
+        };
     return (
         <div>
             <div className="bg-[rgb(149,56,226)] text-center text-white">
@@ -73,6 +98,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 }
