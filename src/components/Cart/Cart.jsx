@@ -2,7 +2,7 @@ import { useContext } from "react";
 import CartContext from '../../contexts/CartContext'
 import GadgetContext from '../../contexts/Gadgetcontext'
 import { TbSortDescendingNumbers } from "react-icons/tb";
-import AddedGadget from "../../assets/AddedGadget";
+import AddedGadget from "../AddedGadget/AddedGadget";
 
 
 const Cart = () => {
@@ -21,7 +21,7 @@ const Cart = () => {
         totalPrice += gadget.price;
     }
     return (
-        <div className="bg-[rgba(190,190,190,0.15)] pt-10 sm:pt-20">
+        <div className="bg-[rgba(190,190,190,0.15)] py-10 sm:py-20">
             <div className="w-[90%] mx-auto">
                 <div className="flex flex-col sm:flex-row items-center gap-3 justify-between">
                     <h3 className="text-2xl font-bold">Cart</h3>

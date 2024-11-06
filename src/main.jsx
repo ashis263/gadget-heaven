@@ -9,6 +9,7 @@ import Brands from './components/Brands/Brands'
 import Gadgets from './components/Gadgets/Gadgets'
 import ProductDetails from './components/ProductDetails/ProductDetails'
 import Cart from './components/Cart/Cart'
+import Wishlist from './components/WishList/Wishlist'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
           {
             path: '/dashboard/cart',
             element: <Cart></Cart>
+          },
+          {
+            path: '/dashboard/wishlist',
+            element: <Wishlist></Wishlist>
           }
         ]
       },

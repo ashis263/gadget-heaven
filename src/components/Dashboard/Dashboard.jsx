@@ -26,7 +26,7 @@ const Dashboard = () => {
                         </div>
                         <div className="space-x-2 pt- sm:pt-8">
                             <button onClick={() => navigate('/dashboard/cart')} className="text-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-28">Cart</button>
-                            <button onClick='' className="text-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-28">WishList</button>
+                            <button onClick={() => navigate('/dashboard/wishlist')} className="text-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-28">WishList</button>
                         </div>
                     </div>
                 </div>
