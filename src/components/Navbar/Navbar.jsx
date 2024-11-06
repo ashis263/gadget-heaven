@@ -5,7 +5,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import logo from '../../assets/favicon-16x16.png'
 import { useContext } from "react";
-import CartContext from "../../CartContext";
+import CartContext from "../../contexts/CartContext";
 
 
 const Navbar = () => {

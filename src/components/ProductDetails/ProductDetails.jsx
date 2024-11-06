@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import { IoCartOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useContext, useState } from "react";
-import CartContext from "../../CartContext";
+import CartContext from "../../contexts/CartContext";
 
 
 const ProductDetails = () => {

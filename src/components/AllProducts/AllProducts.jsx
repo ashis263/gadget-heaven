@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import GadgetContext from "../../Gadgetcontext";
+import GadgetContext from "../../contexts/Gadgetcontext";
 import Gadget from "../Gadget/Gadget";
 
 const AllProducts = () => {

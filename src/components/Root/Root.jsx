@@ -4,8 +4,8 @@ import Navbar from "../Navbar/Navbar";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
-import GadgetContext from "../../Gadgetcontext";
-import Cartcontext from "../../CartContext";
+import GadgetContext from "../../contexts/Gadgetcontext";
+import Cartcontext from "../../contexts/CartContext";
 
 
 const Root = () => {

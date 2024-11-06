@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import GadgetContext from "../../Gadgetcontext";
+import GadgetContext from "../../contexts/Gadgetcontext";
 import PropTypes from 'prop-types';
 
 const Categories = ({active, handleActive}) => {

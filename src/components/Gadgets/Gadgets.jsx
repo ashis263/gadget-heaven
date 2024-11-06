@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import Categories from "../Categories/Categories";
 import Gadget from "../Gadget/Gadget";
-import GadgetContext from "../../Gadgetcontext";
+import GadgetContext from "../../contexts/Gadgetcontext";
 
 const Gadgets = () => {
     const allGadgets = useContext(GadgetContext);
