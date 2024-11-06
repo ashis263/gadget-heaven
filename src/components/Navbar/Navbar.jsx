@@ -4,10 +4,13 @@ import { NavLink, useLocation } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import logo from '../../assets/favicon-16x16.png'
+import { useContext } from "react";
+import CartContext from "../../CartContext";
 
 
 const Navbar = () => {
     const path = useLocation().pathname;
+    const {cart} = useContext(CartContext);
     const links = <>
         <li className=""><NavLink className={({ isActive }) => (isActive) ? "underline font-semibold" : ""
         } to='/'>Home</NavLink></li>
@@ -54,8 +57,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="m-2 bg-white p-2 rounded-full border">
+                    <div className="relative m-2 bg-white p-2 rounded-full border">
                         <IoCartOutline className="text-black"/>
+                        {
+                            (cart.length) ? <span className="absolute -top-2 left-3 border-2 badge badge-sm indicator-item p-2">{cart.length}</span> : ""
+                        }
                     </div>
                     <div className="m-2 bg-white p-2 rounded-full border">
                         <IoMdHeartEmpty className="text-black"/>

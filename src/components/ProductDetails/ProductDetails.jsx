@@ -2,19 +2,28 @@ import { useLoaderData, useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { IoCartOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { useContext, useState } from "react";
+import CartContext from "../../CartContext";
 
 
 const ProductDetails = () => {
     const { id } = useParams();
-
+    const {cart, setCart} = useContext(CartContext);
     const products = useLoaderData();
     const product = products.find(item => item.product_id === id);
+    const [isAdded, setIsAdded] = useState(cart.includes(product.product_id));
     const rating = {
         size: 30,
         value: product.rating,
         edit: false,
         isHalf: true,
     };
+    const handleCart = () => {
+        if(!cart.includes(product.product_id)){
+            setCart([...cart, product.product_id]);
+            setIsAdded(true);
+        }
+    }
     return (
         <div>
             <div className="bg-[rgb(149,56,226)] text-center text-white">
@@ -44,7 +53,7 @@ const ProductDetails = () => {
                             <ReactStars {...rating} />
                         </div>
                         <div className="flex gap-2 items-center justify-center sm:justify-normal">
-                            <button className="bg-[rgb(149,56,226)] text-white font-bold btn btn-sm rounded-3xl w-36">Add to cart <IoCartOutline className="text-white" /></button>
+                            <button onClick={handleCart} className={`bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 ${isAdded ? 'text-black' : 'text-white'}`} disabled={isAdded}>Add to cart <IoCartOutline className={isAdded ? '' : 'text-white'} /></button>
                             <div className="m-2 bg-white p-[6px] rounded-full border">
                                 <IoMdHeartEmpty className="text-black" />
                             </div>

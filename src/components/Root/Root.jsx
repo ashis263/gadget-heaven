@@ -5,11 +5,13 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import GadgetContext from "../../Gadgetcontext";
+import Cartcontext from "../../CartContext";
 
 
 const Root = () => {
     const path = useLocation().pathname;
     const [gadgets, setGadgets] = useState([]);
+    const [cart, setCart] = useState([]);
     useEffect(() => {
         fetch('gadgets.json')
             .then(res => res.json())
@@ -22,10 +24,12 @@ const Root = () => {
                     <title>Gradget Heaven | Home</title>
                 </Helmet>
                 <GadgetContext.Provider value={gadgets}>
-                    {
-                        (path === '/') ? <Header></Header> : <Navbar></Navbar>
-                    }
-                    <Outlet></Outlet>
+                    <Cartcontext.Provider value={{cart, setCart}}>
+                        {
+                            (path === '/') ? <Header></Header> : <Navbar></Navbar>
+                        }
+                        <Outlet></Outlet>
+                    </Cartcontext.Provider>
                 </GadgetContext.Provider>
                 <Footer></Footer>
             </HelmetProvider>
