@@ -6,12 +6,14 @@ import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import GadgetContext from "../../contexts/Gadgetcontext";
 import Cartcontext from "../../contexts/CartContext";
+import WishContext from "../../contexts/WishContext";
 
 
 const Root = () => {
     const path = useLocation().pathname;
     const [gadgets, setGadgets] = useState([]);
     const [cart, setCart] = useState([]);
+    const [wishlist, setWishlist] = useState([]);
     useEffect(() => {
         fetch('gadgets.json')
             .then(res => res.json())
@@ -24,11 +26,13 @@ const Root = () => {
                     <title>Gradget Heaven | Home</title>
                 </Helmet>
                 <GadgetContext.Provider value={gadgets}>
-                    <Cartcontext.Provider value={{cart, setCart}}>
-                        {
-                            (path === '/') ? <Header></Header> : <Navbar></Navbar>
-                        }
-                        <Outlet></Outlet>
+                    <Cartcontext.Provider value={{ cart, setCart }}>
+                        <WishContext.Provider value={{wishlist, setWishlist}}>
+                            {
+                                (path === '/') ? <Header></Header> : <Navbar></Navbar>
+                            }
+                            <Outlet></Outlet>
+                        </WishContext.Provider>
                     </Cartcontext.Provider>
                 </GadgetContext.Provider>
                 <Footer></Footer>

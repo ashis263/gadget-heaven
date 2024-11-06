@@ -4,14 +4,18 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useContext, useState } from "react";
 import CartContext from "../../contexts/CartContext";
+import WishContext from "../../contexts/WishContext";
 
 
 const ProductDetails = () => {
     const { id } = useParams();
     const {cart, setCart} = useContext(CartContext);
+    const {wishlist, setWishlist} = useContext(WishContext);
+    console.log(wishlist);
     const products = useLoaderData();
     const product = products.find(item => item.product_id === id);
     const [isAdded, setIsAdded] = useState(cart.includes(product.product_id));
+    const [isWished, setIsWished] = useState(cart.includes(product.product_id));
     const rating = {
         size: 30,
         value: product.rating,
@@ -22,6 +26,12 @@ const ProductDetails = () => {
         if(!cart.includes(product.product_id)){
             setCart([...cart, product.product_id]);
             setIsAdded(true);
+        }
+    };
+    const handleHeart = () => {
+        if(!wishlist.includes(product.product_id)){
+            setWishlist([...wishlist, product.product_id]);
+            setIsWished(true);
         }
     }
     return (
@@ -54,9 +64,9 @@ const ProductDetails = () => {
                         </div>
                         <div className="flex gap-2 items-center justify-center sm:justify-normal">
                             <button onClick={handleCart} className={`bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 ${isAdded ? 'text-black' : 'text-white'}`} disabled={isAdded}>Add to cart <IoCartOutline className={isAdded ? '' : 'text-white'} /></button>
-                            <div className="m-2 bg-white p-[6px] rounded-full border">
-                                <IoMdHeartEmpty className="text-black" />
-                            </div>
+                            <button onClick={handleHeart} className={`m-2 bg-white p-[6px] rounded-full border ${isWished ? "text-gray-300" : "text-black"}`} disabled={isWished}>
+                                <IoMdHeartEmpty />
+                            </button>
                         </div>
                     </div>
                 </div>
