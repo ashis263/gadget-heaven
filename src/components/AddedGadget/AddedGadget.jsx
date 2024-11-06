@@ -42,7 +42,7 @@ const AddedGadget = ({ gadget }) => {
                             }
                         </div>
                         {
-                            (location === '/dashboard/cart' || location === '/dashboard') ? '' : <button onClick={handleAddToCart} className="text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36">Add to cart</button>
+                            <button onClick={handleAddToCart} className="text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36">Add to cart</button>
                         }
                     </div>
                 </div>

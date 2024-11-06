@@ -4,12 +4,13 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useContext } from "react";
 import CartContext from "../../contexts/CartContext";
 import WishContext from "../../contexts/WishContext";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 
 const Dashboard = () => {
     const { cart} = useContext(CartContext);
     const { wishlist} = useContext(WishContext);
+    const location = useLocation().pathname;
     const navigate = useNavigate();
     return (
         <div>
@@ -25,8 +26,8 @@ const Dashboard = () => {
                             <p className="text-xs sm:text-sm">Products added to wishlist: {wishlist.length}</p>
                         </div>
                         <div className="space-x-2 pt- sm:pt-8">
-                            <button onClick={() => navigate('/dashboard/cart')} className="text-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-28">Cart</button>
-                            <button onClick={() => navigate('/dashboard/wishlist')} className="text-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-28">WishList</button>
+                            <button onClick={() => navigate('/dashboard/cart')} className={`${(location === '/dashboard/cart' || location === '/dashboard') ? 'text-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-28' : 'text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-28' }`}>Cart</button>
+                            <button onClick={() => navigate('/dashboard/wishlist')} className={`${(location === '/dashboard/cart' || location === '/dashboard') ? 'text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-28' : 'text-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-28'}`}>WishList</button>
                         </div>
                     </div>
                 </div>
