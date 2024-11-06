@@ -8,8 +8,8 @@ import { useLocation } from 'react-router-dom';
 
 const AddedGadget = ({ gadget }) => {
     const location = useLocation().pathname;
-    const {cart, setCart} = useContext(CartContext);
-    const {wishlist, setWishlist} = useContext(WishContext);
+    const { cart, setCart } = useContext(CartContext);
+    const { wishlist, setWishlist } = useContext(WishContext);
     const handleRemoveCart = () => {
         const gadgetIndex = cart.indexOf(gadget.product_id);
         cart.splice(gadgetIndex, 1);
@@ -20,6 +20,12 @@ const AddedGadget = ({ gadget }) => {
         wishlist.splice(gadgetIndex, 1);
         console.log(gadgetIndex, wishlist);
         setWishlist([...wishlist]);
+    }
+    const handleAddToCart = () => {
+        if (!cart.includes(gadget.product_id)) {
+            setCart([...cart, gadget.product_id]);
+            // setIsAdded(true);
+        }
     }
     return (
         <div className='py-3 sm:py-5'>
@@ -35,6 +41,9 @@ const AddedGadget = ({ gadget }) => {
                                 gadget.Specification.map((item, index) => <p className='text-xs text-gray-500 p-1 border rounded-xl' key={index}>{item}</p>)
                             }
                         </div>
+                        {
+                            (location === '/dashboard/cart' || location === '/dashboard') ? '' : <button onClick={handleAddToCart} className="text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36">Add to cart</button>
+                        }
                     </div>
                 </div>
                 <button onClick={(location === '/dashboard/cart' || location === '/dashboard') ? (handleRemoveCart) : (handleRemoveWishlist)} className='w-24 sm:w-auto btn btn-sm rounded-2xl sm:border-none border-2 sm:bg-white border-red-200 bg-red-50  text-red-400 text-2xl'><AiOutlineCloseCircle />
