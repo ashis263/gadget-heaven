@@ -12,7 +12,7 @@
             "Triple-camera system"
         ],
         "availability": true,
-        "rating": 4.7,
+        "rating": 4.0,
         "brand": "Sony"
     },
     {
@@ -44,7 +44,7 @@
             "512GB SSD"
         ],
         "availability": true,
-        "rating": 4.8,
+        "rating": 3.0,
         "brand": "Dell"
     },
     {
@@ -60,7 +60,7 @@
             "Dual-camera system"
         ],
         "availability": true,
-        "rating": 4.7,
+        "rating": 4.0,
         "brand": "Google"
     },
     {
@@ -92,7 +92,7 @@
             "Daily readiness score"
         ],
         "availability": true,
-        "rating": 4.5,
+        "rating": 3.5,
         "brand": "Fitbit"
     },
     {
@@ -156,7 +156,7 @@
             "512GB SSD"
         ],
         "availability": true,
-        "rating": 4.7,
+        "rating": 3.7,
         "brand": "Microsoft"
     },
     {
@@ -172,7 +172,7 @@
             "Touch controls"
         ],
         "availability": true,
-        "rating": 4.9,
+        "rating": 3.9,
         "brand": "Bose"
     },
     {
@@ -188,7 +188,7 @@
             "Oculus Touch controllers"
         ],
         "availability": true,
-        "rating": 4.6,
+        "rating": 3.6,
         "brand": "Meta"
     },
     {
@@ -204,7 +204,7 @@
             "Quad-camera system"
         ],
         "availability": true,
-        "rating": 4.5,
+        "rating": 3.1,
         "brand": "Xiaomi"
     },
     {
@@ -220,7 +220,7 @@
             "Triple-camera system"
         ],
         "availability": true,
-        "rating": 4.6,
+        "rating": 3.6,
         "brand": "OnePlus"
     },
     {
