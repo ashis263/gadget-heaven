@@ -23,23 +23,46 @@ const ProductDetails = () => {
         edit: false,
         isHalf: true,
     };
+    const addedGadgets = [];
+    for (let gadget of products) {
+        for (let id of cart) {
+            if (id === gadget.product_id) {
+                addedGadgets.push(gadget);
+            }
+        }
+    }
+    let totalPrice = 0;
+    for (let gadget of addedGadgets) {
+        totalPrice += gadget.price;
+    }
     const handleCart = () => {
-        if (!cart.includes(product.product_id)) {
+        if (!cart.includes(product.product_id) && totalPrice + product.price <= 5000) {
+            toast.success(`"${product.product_title}" is added to cart`, {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Flip,
+            });
             setCart([...cart, product.product_id]);
             setIsAdded(true);
+        } else {
+            toast.error(`Total price exceeded 5000, cannot add`, {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Flip,
+            });
         }
-        
-    toast.success(`"${product.product_title}" is added to cart`, {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Flip,
-        });
     };
     const handleHeart = () => {
         if (!wishlist.includes(product.product_id)) {
@@ -56,8 +79,8 @@ const ProductDetails = () => {
             progress: undefined,
             theme: "light",
             transition: Flip,
-            });
-        };
+        });
+    };
     return (
         <div>
             <div className="bg-[rgb(149,56,226)] text-center text-white">
@@ -98,7 +121,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 }
