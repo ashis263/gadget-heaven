@@ -13,7 +13,7 @@ const Brands = () => {
         setGatgets(allGadgets.filter(gadget => gadget.brand === brand))
     }
     return (
-        <div>
+        <div className=" bg-[rgba(190,190,190,.19)] pb-5">
             <HelmetProvider>
                 <Helmet>
                     <title>Gradget Heaven | Brands</title>
