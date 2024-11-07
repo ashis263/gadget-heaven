@@ -102,7 +102,7 @@ const ProductDetails = () => {
                         <div className="space-y-1 sm:w-1/2">
                             <h3 className="text-lg sm:text-2xl font-bold">{product.product_title}</h3>
                             <p className="text-lg font-semibold">Price: {product.price}$</p>
-                            <div className={product.availability ? 'bg-green-205 border border-green-300 w-32 rounded-full' : 'bg-red-50 border border-red-300 w-32 rounded-full'}>
+                            <div className={product.availability ? 'bg-green-205 border border-green-300 w-32 rounded-full max-sm:place-self-center' : 'bg-red-50 border border-red-300 w-32 rounded-full max-sm:place-self-center'}>
                                 <p className={product.availability ? 'text-green-500 font-semibold text-center' : 'text-red-500 font-semibold text-center'}>{product.availability ? 'In Stock' : 'Stocked Out'}</p>
                             </div>
                             <p className="text-xs">{product.description}</p>
@@ -114,8 +114,9 @@ const ProductDetails = () => {
                                 }
                             </div>
                             <p className="font-bold text-lg">Rating: </p>
-                            <div className="flex sm:block justify-center">
+                            <div className="flex max-sm:justify-center items-center gap-1">
                                 <ReactStars {...rating} />
+                                <span className="px-1 border rounded-lg bg-base">{product.rating.toFixed(1)}</span>
                             </div>
                             <div className="flex gap-2 items-center justify-center sm:justify-normal">
                                 <button onClick={handleCart} className={`bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 ${(isAdded || !product.availability) ? 'text-black' : 'text-white'}`} disabled={isAdded || !product.availability}>Add to cart <IoCartOutline className={isAdded || !product.availability ? '' : 'text-white'} /></button>
