@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import {
   ComposedChart,
   Area,
@@ -18,6 +19,10 @@ export default function Statistics() {
   const data = useContext(GadgetContext);
   return (
     <div>
+      <HelmetProvider>
+                <Helmet>
+                    <title>Gradget Heaven | Statistics</title>
+                </Helmet>
       <div className="bg-[rgb(149,56,226)] text-center text-white">
         <div className="w-3/5 mx-auto py-5 sm:py-10">
           <h3 className="text-xl sm:text-3xl font-bold">Statistics</h3>
@@ -52,6 +57,7 @@ export default function Statistics() {
           </div>
         </div>
       </div>
+      </HelmetProvider>
     </div>
   );
 }
