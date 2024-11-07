@@ -123,7 +123,7 @@
             "Apple M2 chip",
             "256GB SSD"
         ],
-        "availability": true,
+        "availability": false,
         "rating": 4.9,
         "brand": "Apple"
     },
@@ -155,7 +155,7 @@
             "Intel Core i7",
             "512GB SSD"
         ],
-        "availability": true,
+        "availability": false,
         "rating": 3.7,
         "brand": "Microsoft"
     },
@@ -203,7 +203,7 @@
             "128GB storage",
             "Quad-camera system"
         ],
-        "availability": true,
+        "availability": false,
         "rating": 3.1,
         "brand": "Xiaomi"
     },

@@ -50,14 +50,14 @@ const Cart = () => {
             </div>
             <div className="grid grid-cols-1 w-[90%] mx-auto">
                 {
-                    toRender.map((gadget, index) => <AddedGadget key={index} gadget={gadget}></AddedGadget>)
+                    toRender.map((gadget, index) => <AddedGadget key={index} setToRender={setToRender} gadget={gadget}></AddedGadget>)
                 }
             </div>
             <div className="modal" role="dialog" id="my_modal_8">
                 <div className="max-sm:w-3/4  modal-box flex flex-col items-center gap-2">
                     <img className="py-5" src={img} alt="" />
                     <div className="space-y-2 py-1 text-center">
-                        <h3 className="text-2xl font-bold">Payment Succesfull!</h3>
+                        <h3 className="text-2xl font-bold">Payment Succesful !</h3>
                         <p className="">Thanks for purchasing.</p>
                         <p>Total: {totalPrice}</p>
                     </div>

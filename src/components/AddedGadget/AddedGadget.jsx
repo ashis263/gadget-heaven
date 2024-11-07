@@ -9,7 +9,7 @@ import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const AddedGadget = ({ gadget }) => {
+const AddedGadget = ({ gadget, setToRender }) => {
     const location = useLocation().pathname;
     const { cart, setCart } = useContext(CartContext);
     const gadgets = useContext(GadgetContext);
@@ -18,7 +18,7 @@ const AddedGadget = ({ gadget }) => {
     const handleRemoveCart = () => {
         const gadgetIndex = cart.indexOf(gadget.product_id);
         cart.splice(gadgetIndex, 1);
-        setCart([...cart]);
+        setToRender([...cart]);
     }
     const handleRemoveWishlist = () => {
         const gadgetIndex = wishlist.indexOf(gadget.product_id);
@@ -96,7 +96,8 @@ const AddedGadget = ({ gadget }) => {
 
 
 AddedGadget.propTypes = {
-    gadget: PropTypes.object.isRequired
+    gadget: PropTypes.object.isRequired,
+    setToRender: PropTypes.func
 };
 
 

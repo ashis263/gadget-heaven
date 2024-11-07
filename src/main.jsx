@@ -23,6 +23,26 @@ const router = createBrowserRouter([
         element: <Gadgets></Gadgets>,
       },
       {
+        path: '/smartphones',
+        element: <Gadgets></Gadgets>,
+      },
+      {
+        path: '/wearables',
+        element: <Gadgets></Gadgets>,
+      },
+      {
+        path: '/laptops',
+        element: <Gadgets></Gadgets>,
+      },
+      {
+        path: '/audio',
+        element: <Gadgets></Gadgets>,
+      },
+      {
+        path: '/gaming',
+        element: <Gadgets></Gadgets>,
+      },
+      {
         path: '/dashboard',
         element: <Dashboard></Dashboard>,
         children: [

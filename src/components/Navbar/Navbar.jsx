@@ -10,20 +10,20 @@ import CartContext from "../../contexts/CartContext";
 
 const Navbar = () => {
     const path = useLocation().pathname;
-    const {cart} = useContext(CartContext);
+    const { cart } = useContext(CartContext);
     const navigate = useNavigate();
     const links = <>
         <li className=""><NavLink className={({ isActive }) => (isActive) ? "underline font-semibold" : ""
         } to='/'>Home</NavLink></li>
         <li className=""><NavLink className={({ isActive }) => (isActive) ? "text-[rgb(149,56,226)] font-semibold" : ""
-        } to='/statistics'>Statistics</NavLink></li>
-        <li className=""><NavLink className={({ isActive }) => (isActive) ? "text-[rgb(149,56,226)] font-semibold" : ""
         } to='/dashboard'>Dashboard</NavLink></li>
+        <li className=""><NavLink className={({ isActive }) => (isActive) ? "text-[rgb(149,56,226)] font-semibold" : ""
+        } to='/statistics'>Statistics</NavLink></li>
         <li className=""><NavLink className={({ isActive }) => (isActive) ? "text-[rgb(149,56,226)] font-semibold" : ""
         } to='/brands'>Brands</NavLink></li>
     </>
     return (
-        <div style={(path !== "/") ? {backgroundColor: "white", border: ""} : {}} className="mx-auto lg:w-[90%]">
+        <div style={((path === "/") || (path === "/smartphones") || (path === "/wearables") || (path === "/laptops") || (path === "/audio") || (path === "/gaming")) ? {} : { backgroundColor: "white", border: "" }} className="mx-auto lg:w-[90%]">
             <div className="navbar">
                 <div className="navbar-start px-0">
                     <div className="dropdown">
@@ -42,14 +42,14 @@ const Navbar = () => {
                             </svg>
                         </div>
                         <ul
-                            tabIndex={0} style={(path !== "/") ? {backgroundColor: "white", border: "1px solid gray"} : {}}
+                            tabIndex={0} style={(path !== "/") ? { backgroundColor: "white", border: "1px solid gray" } : {}}
                             className="menu menu-sm dropdown-content bg-[#535050]  rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             {links}
                         </ul>
                     </div>
                     <div className="flex items-center gap-1 sm:gap-2">
                         <img className="w-5" src={logo} alt="" />
-                    <h2 className="md:text-xl font-bold">Gadget Heaven</h2>
+                        <h2 className="md:text-xl font-bold">Gadget Heaven</h2>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -59,13 +59,13 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <button onClick={() => navigate('/dashboard/cart')} className="btn relative m-2 bg-white px-4 rounded-full border">
-                        <IoCartOutline className="text-black"/>
+                        <IoCartOutline className="text-black" />
                         {
                             (cart.length) ? <span className="absolute -top-2 left-7 border-2 rounded-full badge badge-sm indicator-item p-2">{cart.length}</span> : ""
                         }
                     </button>
                     <button onClick={() => navigate('/dashboard/wishlist')} className="btn m-2 bg-white px-4 rounded-full border">
-                        <IoMdHeartEmpty className="text-black"/>
+                        <IoMdHeartEmpty className="text-black" />
                     </button>
 
                 </div>

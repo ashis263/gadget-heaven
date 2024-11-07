@@ -20,7 +20,7 @@ const Root = () => {
             .then(data => setGadgets(data))
     }, []);
     return (
-        <div style={(path !== "/") ? { backgroundColor: "white" } : { backgroundColor: "rgba(190,190,190,0.15)" }} className="max-w-screen-xl mx-auto">
+        <div style={((path === "/") || (path === "/smartphones") || (path === "/wearables") || (path === "/laptops") || (path === "/audio") || (path === "/gaming")) ? { backgroundColor: "rgba(190,190,190,0.15)" } : { backgroundColor: "white" }} className="max-w-screen-xl mx-auto">
             <HelmetProvider>
                 <Helmet>
                     <title>Gradget Heaven | Home</title>
@@ -29,7 +29,7 @@ const Root = () => {
                     <Cartcontext.Provider value={{ cart, setCart }}>
                         <WishContext.Provider value={{wishlist, setWishlist}}>
                             {
-                                (path === '/') ? <Header></Header> : <Navbar></Navbar>
+                                ((path === "/") || (path === "/smartphones") || (path === "/wearables") || (path === "/laptops") || (path === "/audio") || (path === "/gaming")) ? <Header></Header> : <Navbar></Navbar>
                             }
                             <Outlet></Outlet>
                         </WishContext.Provider>
