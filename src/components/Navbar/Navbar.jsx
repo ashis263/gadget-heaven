@@ -1,6 +1,6 @@
 // import PropTypes from 'prop-types';
 
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import logo from '../../assets/favicon-16x16.png'
@@ -11,6 +11,7 @@ import CartContext from "../../contexts/CartContext";
 const Navbar = () => {
     const path = useLocation().pathname;
     const {cart} = useContext(CartContext);
+    const navigate = useNavigate();
     const links = <>
         <li className=""><NavLink className={({ isActive }) => (isActive) ? "underline font-semibold" : ""
         } to='/'>Home</NavLink></li>
@@ -57,15 +58,15 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="relative m-2 bg-white p-2 rounded-full border">
+                    <button onClick={() => navigate('/dashboard/cart')} className="btn relative m-2 bg-white px-4 rounded-full border">
                         <IoCartOutline className="text-black"/>
                         {
-                            (cart.length) ? <span className="absolute -top-2 left-3 border-2 badge badge-sm indicator-item p-2">{cart.length}</span> : ""
+                            (cart.length) ? <span className="absolute -top-2 left-7 border-2 rounded-full badge badge-sm indicator-item p-2">{cart.length}</span> : ""
                         }
-                    </div>
-                    <div className="m-2 bg-white p-2 rounded-full border">
+                    </button>
+                    <button onClick={() => navigate('/dashboard/wishlist')} className="btn m-2 bg-white px-4 rounded-full border">
                         <IoMdHeartEmpty className="text-black"/>
-                    </div>
+                    </button>
 
                 </div>
             </div>
