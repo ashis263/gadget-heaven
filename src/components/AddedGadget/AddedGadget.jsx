@@ -3,7 +3,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useContext, useState } from 'react';
 import CartContext from "../../contexts/CartContext";
 import WishContext from '../../contexts/WishContext';
-import GadgetContext from '../../contexts/GadgetContext';
+import GadgetContext from '../../contexts/Gadgetcontext';
 import { useLocation } from 'react-router-dom';
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

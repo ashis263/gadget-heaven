@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartContext from '../../contexts/CartContext'
 import GadgetContext from '../../contexts/Gadgetcontext'
 import { TbSortDescendingNumbers } from "react-icons/tb";
@@ -19,6 +19,7 @@ const Cart = () => {
             }
         }
     }
+    const [toRender, setToRender] = useState(addedGadgets);
     let totalPrice = 0;
     for (let gadget of addedGadgets) {
         totalPrice += gadget.price;
@@ -27,6 +28,10 @@ const Cart = () => {
         navigate('/')
         setCart([]);
     }
+    const handleSort = () => {
+        const sorted = addedGadgets.sort((a, b) => b.price - a.price);
+        setToRender([...sorted]);
+    }
     return (
         <div className="bg-[rgba(190,190,190,0.15)] py-10 sm:py-20">
             <div className="w-[90%] mx-auto">
@@ -34,7 +39,7 @@ const Cart = () => {
                     <h3 className="text-2xl font-bold">Cart</h3>
                     <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
                         <h3 className="text-lg sm:text-2xl font-bold">Total Price: {totalPrice}</h3>
-                        <button onClick='' className="text-[rgb(149,56,226)] border border-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 flex gap-2 items-center">Sort by price <TbSortDescendingNumbers />
+                        <button onClick={handleSort} className="text-[rgb(149,56,226)] border border-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 flex gap-2 items-center">Sort by price <TbSortDescendingNumbers />
                         </button>
                         <a href='#my_modal_8'>
                             <button disabled={!cart.length} className="text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 flex gap-2 items-center">Purchase
@@ -45,7 +50,7 @@ const Cart = () => {
             </div>
             <div className="grid grid-cols-1 w-[90%] mx-auto">
                 {
-                    addedGadgets.map((gadget, index) => <AddedGadget key={index} gadget={gadget}></AddedGadget>)
+                    toRender.map((gadget, index) => <AddedGadget key={index} gadget={gadget}></AddedGadget>)
                 }
             </div>
             <div className="modal" role="dialog" id="my_modal_8">
