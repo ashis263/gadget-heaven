@@ -6,11 +6,13 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import logo from '../../assets/favicon-16x16.png'
 import { useContext } from "react";
 import CartContext from "../../contexts/CartContext";
+import WishContext from "../../contexts/WishContext";
 
 
 const Navbar = () => {
     const path = useLocation().pathname;
     const { cart } = useContext(CartContext);
+    const {wishlist} = useContext(WishContext);
     const navigate = useNavigate();
     const links = <>
         <li className=""><NavLink className={({ isActive }) => (isActive) ? "underline font-semibold" : ""
@@ -42,7 +44,7 @@ const Navbar = () => {
                             </svg>
                         </div>
                         <ul
-                            tabIndex={0} style={(path !== "/") ? { backgroundColor: "white", border: "1px solid gray" } : {}}
+                            tabIndex={0} style={((path === "/") || (path === "/smartphones") || (path === "/wearables") || (path === "/laptops") || (path === "/audio") || (path === "/gaming")) ? {} : { backgroundColor: "white", border: "1px solid gray" }}
                             className="menu menu-sm dropdown-content bg-[#535050]  rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             {links}
                         </ul>
@@ -64,8 +66,11 @@ const Navbar = () => {
                             (cart.length) ? <span className="absolute -top-2 left-7 border-2 rounded-full badge badge-sm indicator-item p-2">{cart.length}</span> : ""
                         }
                     </button>
-                    <button onClick={() => navigate('/dashboard/wishlist')} className="btn m-2 bg-white px-4 rounded-full border">
+                    <button onClick={() => navigate('/dashboard/wishlist')} className="btn m-2 bg-white relative px-4 rounded-full border">
                         <IoMdHeartEmpty className="text-black" />
+                        {
+                            (wishlist.length) ? <span className="absolute -top-2 left-7 border-2 rounded-full badge badge-sm indicator-item p-2">{wishlist.length}</span> : ""
+                        }
                     </button>
 
                 </div>

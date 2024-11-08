@@ -24,9 +24,14 @@ const Cart = () => {
     for (let gadget of addedGadgets) {
         totalPrice += gadget.price;
     }
+    const [modalPrice, setModalPrice] =useState(totalPrice);
     const handlePurchase = () => {
-        navigate('/')
         setCart([]);
+        setToRender([]);
+        document.getElementById('my_modal_1').showModal();
+    }
+    const handleNavigateAfterPurchasing = () => {
+        navigate('/');
     }
     const handleSort = () => {
         const sorted = addedGadgets.sort((a, b) => b.price - a.price);
@@ -41,31 +46,29 @@ const Cart = () => {
                         <h3 className="text-lg sm:text-2xl font-bold">Total Price: {totalPrice}</h3>
                         <button onClick={handleSort} className="text-[rgb(149,56,226)] border border-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 flex gap-2 items-center">Sort by price <TbSortDescendingNumbers />
                         </button>
-                        <a href='#my_modal_8'>
-                            <button disabled={!cart.length} className="text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 flex gap-2 items-center">Purchase
-                            </button>
-                        </a>
+                        <button onClick={handlePurchase} disabled={!cart.length} className="text-white bg-[rgb(149,56,226)] font-bold btn btn-sm rounded-3xl w-36 flex gap-2 items-center">Purchase
+                        </button>
                     </div>
                 </div>
             </div>
             <div className="grid grid-cols-1 w-[90%] mx-auto">
                 {
-                    toRender.map((gadget, index) => <AddedGadget key={index} setToRender={setToRender} gadget={gadget}></AddedGadget>)
+                    toRender.map((gadget, index) => <AddedGadget key={index} setToRender={setToRender} gadget={gadget} modalPrice={modalPrice} setModalPrice={setModalPrice}></AddedGadget>)
                 }
             </div>
-            <div className="modal" role="dialog" id="my_modal_8">
+            <dialog id="my_modal_1" className="modal">
                 <div className="max-sm:w-3/4  modal-box flex flex-col items-center gap-2">
-                    <img className="py-5" src={img} alt="" />
+                <img className="py-5" src={img} alt="" />
                     <div className="space-y-2 py-1 text-center">
                         <h3 className="text-2xl font-bold">Payment Succesful !</h3>
                         <p className="">Thanks for purchasing.</p>
-                        <p>Total: {totalPrice}</p>
+                        <p>Total: {modalPrice}</p>
                     </div>
                     <div className="modal-action">
-                        <button onClick={handlePurchase} className="btn btn-sm btn-wide">Close</button>
+                        <button onClick={handleNavigateAfterPurchasing} className="btn btn-sm btn-wide">Close</button>
                     </div>
                 </div>
-            </div>
+            </dialog>
         </div>
     );
 }
